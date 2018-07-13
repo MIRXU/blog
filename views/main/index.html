@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的博客</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/main.css"/>
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/index.js"></script>
+</head>
+<body>
+
+<div class="main">
+    <div class="left">
+
+    </div>
+    <div class="right">
+        <div class="right-main">
+            <!--<div class="user">-->
+                <!--<h3>用户信息</h3>-->
+                <!--张三-->
+                <!--<p>欢迎登陆我的博客</p>-->
+            <!--</div>-->
+            <div class="login" id="loginBox" style="display: none">
+                <h3>用户登陆</h3>
+                <form action="#" method="post">
+                    <span>用户名：</span> <input type="text" name="username"><br>
+                    <span>密&nbsp;&nbsp;&nbsp;&nbsp;码：</span><input type="password" name="password"><br>
+
+                </form>
+                <button  class="submit">登陆</button>
+                <div class="ischeck"></div>
+                <div class="isregister">还没注册<a href="#" >马上注册</a></div>
+            </div>
+            <div class="register"  id="registerBox" >
+                <h3>用户注册</h3>
+                <form action="#" method="post">
+                    <span>&nbsp;&nbsp;&nbsp;用户名：</span><input type="text" name="username"><br>
+                    <span>&nbsp;&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;码：</span><input type="password" name="password"><br>
+                    <span>确认密码：</span><input type="password" name="password1"><br>
+
+                </form>
+                <button class="submit">注册</button>
+                <div class="ischeckregister"></div>
+                <div class="islogin" >已经注册<a href="#">马上登陆</a></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

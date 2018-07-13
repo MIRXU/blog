@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #666666;
+    text-align: center;
+    font-size: 14px;
+}
+.left{
+    width: 70%;
+    float: left;
+}
+
+.right{
+    width: 30%;
+    float: right;
+    margin-top: 100px;
+}
+.right-main{
+    width: 300px;
+}
+.user{
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #cccccc;
+}
+.user h3,.login h3,.register h3{
+    text-align: left;
+    font-size: 16px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #cccccc;
+}
+.login{
+    background-color: white;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #cccccc;
+    padding-top:15px;
+    padding-right:15px;
+    padding-bottom:15px;
+    padding-left:15px;
+}
+.login input,.register input{
+    margin-top: 15px;
+    padding-left: 5px;
+    height: 30px;
+}
+.register{
+    background-color: white;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #cccccc;
+    padding-top:15px;
+    padding-right:15px;
+    padding-bottom:15px;
+    padding-left:15px;
+    padding-left:15px;
+}
+.isregister,.islogin{
+    text-align: right;
+    margin-top: 8px;
+}
+button{
+    width: 50px;
+    margin-top: 10px;
+}

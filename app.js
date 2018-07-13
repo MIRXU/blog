@@ -5,8 +5,12 @@ var express=require('express');
 var swig=require('swig');
 //创建app应用
 var app=express();
+//加载数据库
+var mongoose=require('mongoose');
 
+var bodyParser=require('body-parser');
 
+app.use(bodyParser.urlencoded({extended:true}))
 
 //设置静态文件托管
 app.use('/public', express.static(__dirname + '/public'));
@@ -42,5 +46,14 @@ swig.setDefaults({cache:false});
 app.use('/admin',require('./routers/admin'));
 app.use('/api',require('./routers/api'));
 app.use('/',require('./routers/main'));
-//监听http请求
-app.listen(8081);
+//连接数据库
+mongoose.connect('mongodb://localhost:27018/blog',function(err){
+    if(err){
+        console.log('数据库连接失败！');
+    }else{
+        console.log('数据库连接成功！');
+        //监听http请求
+        app.listen(8081);
+    }
+});
+

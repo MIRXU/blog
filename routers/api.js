@@ -10,7 +10,6 @@ router.use(function(req,res,next){
    next();
 });
 router.post('/user/register',function (req,res,next) {
-    console.log(req.body)
    var username=req.body.username;
    var password=req.body.password;
    var password1=req.body.password1;
@@ -54,5 +53,32 @@ router.post('/user/register',function (req,res,next) {
         res.json(resposeData);
     });
 
+});
+router.post('/user/login',function(req,res,next){
+    var username=req.body.username;
+    var password=req.body.password;
+    if(username==''||password==''){
+        resposeData.code=4;
+        resposeData.message='用户名或者密码不能为空';
+        res.json(resposeData);
+        return;
+    }
+    User.findOne({
+        username:username,
+        password:password
+    }).then(function(userinfo){
+        if(!userinfo){
+            resposeData.code=1;
+            resposeData.message='或者密码错误';
+            res.json(resposeData);
+            return;
+        }
+        resposeData.message='登陆成功';
+        resposeData.userinfo= {
+            _id: userinfo._id,
+            username: userinfo.username
+        }
+        res.json(resposeData);
+    });
 });
 module.exports=router;

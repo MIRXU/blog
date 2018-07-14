@@ -1,6 +1,7 @@
 $(function(){
     var $registerBox=$('#registerBox');
     var $loginBox=$('#loginBox');
+    var $userinfo=$('#userinfo');
     $registerBox.find('a').on('click',function(){
         $loginBox.show();
         $registerBox.hide();
@@ -9,6 +10,7 @@ $(function(){
         $registerBox.show();
         $loginBox.hide();
     });
+    //注册
     $registerBox.find('button').on('click',function(){
        $.ajax({
            url:'/api/user/register',
@@ -29,5 +31,27 @@ $(function(){
                 }
            }
        })
+    });
+    //登陆
+    $loginBox.find('button').on('click',function(){
+        $.ajax({
+            url:'/api/user/login',
+            type:'post',
+            data:{
+                username:$loginBox.find('[name="username"]').val(),
+                password:$loginBox.find('[name="password"]').val(),
+            },
+            dataType:'json',
+            success:function(result){
+                $loginBox.find('.ischeck').html(result.message);
+                if(!result.code){
+                    setTimeout(function(){
+                        $userinfo.show();
+                        $loginBox.hide();
+                        $userinfo.find('span').html(result.userinfo.username);
+                    },1000);
+                }
+            }
+        })
     });
 })

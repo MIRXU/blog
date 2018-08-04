@@ -43,13 +43,18 @@ $(function(){
             },
             dataType:'json',
             success:function(result){
-                $loginBox.find('.ischeck').html(result.message);
-                if(!result.code){
-                    setTimeout(function(){
-                        $userinfo.show();
-                        $loginBox.hide();
-                        $userinfo.find('span').html(result.userinfo.username);
-                    },1000);
+               window.location.reload();
+            }
+        })
+    });
+    //退出
+    $userinfo.find('$logout').on('click',function(){
+        $.ajax({
+            url:'/api/user/logout',
+            type:'get',
+            success:function(result){
+                if(result.code==0){
+                    window.location.reload();
                 }
             }
         })

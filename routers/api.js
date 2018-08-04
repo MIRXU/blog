@@ -78,7 +78,16 @@ router.post('/user/login',function(req,res,next){
             _id: userinfo._id,
             username: userinfo.username
         }
+        req.cookies.set('userInfo', JSON.stringify({
+                _id: userinfo._id,
+                username: userinfo.username
+            }));
         res.json(resposeData);
     });
+    console.log('步骤七');
+});
+router.get('/user/logout',function (req,res) {
+    req.cookies.set('userInfo',null);
+    res.json(resposeData);
 });
 module.exports=router;

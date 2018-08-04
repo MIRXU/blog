@@ -11,16 +11,29 @@
 
 <div class="main">
     <div class="left">
-
+        <ul>
+            {% for category in categories %}
+                <li><a href="#">{{category.name}}</a></li>
+            {%endfor%}
+        </ul>
     </div>
     <div class="right">
+        {% if userInfo._id %}
         <div class="right-main">
-            <div class="user" id="userinfo" style="display: none">
+            <div class="user" id="userinfo">
                 <h3>用户信息</h3>
-                <span>张三</span>
+                <span>{{userInfo.username}}</span>
+                {% if userInfo.username == 'admin'%}
+                <p>欢迎您，管理员</p><a href="/admin">进入后台</a>
+                {%else%}
                 <p>欢迎登陆我的博客</p>
+                {%endif%}
+
+                <p><a href="#" id="logout">退出</a></p>
             </div>
-            <div class="login" id="loginBox" style="display: none">
+
+            {% else %}
+            <div class="login" id="loginBox" >
                 <h3>用户登陆</h3>
                 <form action="#" method="post">
                     <span>用户名：</span> <input type="text" name="username"><br>
@@ -31,7 +44,7 @@
                 <div class="ischeck"></div>
                 <div class="isregister">还没注册<a href="#" >马上注册</a></div>
             </div>
-            <div class="register"  id="registerBox" >
+            <div class="register"  id="registerBox" style="display: none">
                 <h3>用户注册</h3>
                 <form action="#" method="post">
                     <span>&nbsp;&nbsp;&nbsp;用户名：</span><input type="text" name="username"><br>
@@ -43,6 +56,7 @@
                 <div class="ischeckregister"></div>
                 <div class="islogin" >已经注册<a href="#">马上登陆</a></div>
             </div>
+            {% endif %}
         </div>
 
     </div>
